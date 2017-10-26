@@ -1,0 +1,15 @@
+[Unit]
+Description=LCD Ip Address
+After=network.target
+
+[Service]
+User=nuc-user
+ExecStart=/usr/local/bin/ip_addr_c
+Environment="NODE_PATH=/usr/lib/node_modules"
+Restart=on-failure
+RestartSec=10
+KillSignal=SIGINT
+
+[Install]
+WantedBy=multi-user.target
+Alias=ip_addr_c.service
