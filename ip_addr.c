@@ -111,9 +111,9 @@ int main()
       jhd1313m1_write(lcd, str2, strlen(str2));
 
       // Change the color
-      uint8_t r = rgb[0][0];
-      uint8_t g = rgb[0][0];
-      uint8_t b = rgb[255][0];
+      uint8_t r = rgb[255][0];
+      uint8_t g = rgb[142][0];
+      uint8_t b = rgb[58][0];
        
       jhd1313m1_set_color(lcd, r, g, b);
 
