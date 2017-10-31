@@ -27,6 +27,7 @@
 #include <sys/socket.h>
 #include <netdb.h>
 #include <ifaddrs.h>
+#include <pcap.h>
 
 #include "jhd1313m1.h"
 #include "upm.h"
@@ -52,6 +53,10 @@ int main()
     struct ifaddrs *ifaddr, *ifa;
     struct sockaddr_in *sa;
     char *addr;
+    char *device;
+    char errbuf[PCAP_ERRBUF_SIZE];
+
+    device = pcap_lookupdev(errbuf);
 
     if (getifaddrs(&ifaddr) == -1) 
     {
@@ -59,6 +64,7 @@ int main()
         exit(EXIT_FAILURE);
     }
 
+    
 
     for (ifa = ifaddr; ifa != NULL; ifa = ifa->ifa_next) 
     {
@@ -67,8 +73,8 @@ int main()
 
         if(ifa->ifa_addr->sa_family==AF_INET)
         {
-	  str1[0] = ifa->ifa_name[0];
-          if(strcmp(str1,"e")==0) {
+	  
+          if(strcmp(ifa->ifa_name,device)==0) {
 
 	    sa = (struct sockaddr_in *) ifa->ifa_addr;
 	    addr = inet_ntoa(sa->sin_addr);

@@ -23,7 +23,7 @@
 all:	ip_addr_c
 
 ip_addr_c:	ip_addr.c
-	gcc ip_addr.c -o ip_addr_c -I/usr/include/upm -lupmc-utilities -lmraa -lm -lupm-jhd1313m1 -lupmc-jhd1313m1 -lupm-lcm1602 -lupmc-lcm1602
+	gcc ip_addr.c -o ip_addr_c -I/usr/include/upm -lupmc-utilities -lmraa -lm -lupm-jhd1313m1 -lupmc-jhd1313m1 -lupm-lcm1602 -lupmc-lcm1602 -lpcap
 
 clean:
 	rm -rf ip_addr_c
