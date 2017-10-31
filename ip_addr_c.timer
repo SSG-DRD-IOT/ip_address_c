@@ -1,0 +1,9 @@
+[Unit]
+Description=Run ip_addr_c service after some delay
+
+[Timer]
+OnBootSec=25sec
+Unit=ip_addr_c.service
+
+[Install]
+WantedBy=multi-user.target
