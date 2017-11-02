@@ -85,11 +85,22 @@ int main()
     }
     
     freeifaddrs(ifaddr);
+
+#ifdef UP2_MRAA_SUBPLATFORM
+
+    mraa_add_subplatform(MRAA_GROVEPI, "0");
+    // initialize a JHD1313m1 on I2C bus 0, LCD address 0x3e, RGB
+    // address 0x62
+    jhd1313m1_context lcd = jhd1313m1_init(0, 0x3e, 0x62);
+
+#else
     
     // initialize a JHD1313m1 on I2C bus 0, LCD address 0x3e, RGB
     // address 0x62
     jhd1313m1_context lcd = jhd1313m1_init(512, 0x3e, 0x62);
 
+#endif
+    
     if (!lcd)
     {
         printf("jhd1313m1_i2c_init() failed\n");

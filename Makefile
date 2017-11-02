@@ -25,6 +25,12 @@ all:	ip_addr_c
 ip_addr_c:	ip_addr.c
 	gcc ip_addr.c -o ip_addr_c -I/usr/include/upm -lupmc-utilities -lmraa -lm -lupm-jhd1313m1 -lupmc-jhd1313m1 -lupm-lcm1602 -lupmc-lcm1602 -lpcap
 
+up2:	ip_addr_c_up2
+
+ip_addr_c_up2:	ip_addr.c
+	gcc -DUP2_MRAA_SUBPLATFORM ip_addr.c -o ip_addr_c_up2 -I/usr/include/upm -lupmc-utilities -lmraa -lm -lupm-jhd1313m1 -lupmc-jhd1313m1 -lupm-lcm1602 -lupmc-lcm1602 -lpcap
+
 clean:
 	rm -rf ip_addr_c
+	rm -rf ip_addr_c_up2
 	rm -rf *.o
