@@ -3,7 +3,7 @@ Description=LCD Ip Address
 After=network.target
 
 [Service]
-User=nuc-user
+User=root
 ExecStart=/usr/local/bin/ip_addr_c
 Environment="NODE_PATH=/usr/lib/node_modules"
 Restart=on-failure
