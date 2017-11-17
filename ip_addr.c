@@ -95,6 +95,7 @@ int main()
 
 #else
     
+    mraa_add_subplatform(MRAA_GENERIC_FIRMATA, "/dev/ttyACM0");
     // initialize a JHD1313m1 on I2C bus 0, LCD address 0x3e, RGB
     // address 0x62
     jhd1313m1_context lcd = jhd1313m1_init(512, 0x3e, 0x62);
