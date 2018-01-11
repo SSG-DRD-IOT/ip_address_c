@@ -50,6 +50,8 @@ int main()
 {
     signal(SIGINT, sig_handler);
 
+    sleep(10);
+    
     struct ifaddrs *ifaddr, *ifa;
     struct sockaddr_in *sa;
     char *addr;
@@ -85,7 +87,7 @@ int main()
     }
     
     freeifaddrs(ifaddr);
-
+    
 #ifdef UP2_MRAA_SUBPLATFORM
 
     mraa_add_subplatform(MRAA_GROVEPI, "0");
@@ -130,8 +132,8 @@ int main()
 
       // Change the color
       uint8_t r = rgb[255][0];
-      uint8_t g = rgb[142][0];
-      uint8_t b = rgb[58][0];
+      uint8_t g = rgb[0][0];
+      uint8_t b = rgb[0][0];
        
       jhd1313m1_set_color(lcd, r, g, b);
 
